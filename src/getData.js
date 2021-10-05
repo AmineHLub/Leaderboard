@@ -16,6 +16,8 @@ if (!previousData) {
   arrOfScores = previousData;
 }
 
+arrOfScores.sort((b, a) => a.value - b.value);
+
 for (let i = 0; i < arrOfScores.length; i += 1) {
   const newLi = document.createElement('li');
   ulWrap.appendChild(newLi);
