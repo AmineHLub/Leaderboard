@@ -1,0 +1,38 @@
+.d-flex-col {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.d-flex {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.main-header {
+  margin: 40px 0 10px 4%;
+}
+
+main {
+  justify-content: center;
+  margin: 70px 0;
+}
+
+.recent-scores-section {
+  margin: 0 15% 0 0;
+}
+
+.adding-scores-section {
+  margin: 0 0 0 15%;
+}
+
+.adding-scores-section > form > button {
+  align-self: flex-end;
+}
