@@ -4,7 +4,7 @@ class Score {
     this.value = value;
   }
 }
-export default function addScores() {
+const addScores = () => {
   const name = document.querySelector('.name-input').value;
   const val = document.querySelector('.score-input').value;
   if (name && val) {
@@ -14,4 +14,6 @@ export default function addScores() {
     // eslint-disable-next-line no-implied-eval
     setTimeout('window.location.reload()', 0);
   }
-}
+};
+
+export default addScores;
