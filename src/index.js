@@ -5,7 +5,6 @@ import addScores from './addScores.js';
 import storeGameIdToLocalStorage from './newGame.js';
 import reloader from './reloader.js';
 
-// create new game if there isn't and store to local storage for use later
 storeGameIdToLocalStorage();
 
 document.querySelector('.name-input').addEventListener('change', saveInput);
