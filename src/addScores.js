@@ -1,3 +1,5 @@
+import reloader from './reloader.js';
+
 class Score {
   constructor(user, score) {
     this.user = user;
@@ -5,9 +7,9 @@ class Score {
   }
 }
 
-const currentID = JSON.parse(localStorage.getItem('storedGameId'));
-
 async function sendScoreToApi() {
+  const currentID = JSON.parse(localStorage.getItem('storedGameId'));
+  console.log(currentID);
   const objectMaking = fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${currentID}/scores`, {
     method: 'POST',
     body: JSON.stringify(new Score(document.querySelector('.name-input').value,
@@ -18,7 +20,7 @@ async function sendScoreToApi() {
   });
   const response = await objectMaking;
   await response.json();
-  window.location.reload();
+  reloader();
 }
 
 const addScores = () => {

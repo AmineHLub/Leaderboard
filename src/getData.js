@@ -6,13 +6,12 @@ if (previousInput) {
     document.querySelector('.score-input').value] = previousInput;
 }
 
-const currentID = JSON.parse(localStorage.getItem('storedGameId'));
-
 export default function getData() {
+  const currentID = JSON.parse(localStorage.getItem('storedGameId'));
   async function importData() {
     const fetchScores = fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${currentID}/scores`);
-    const response = await fetchScores;
-    const jsonObject = await response.json();
+    const update = await fetchScores;
+    const jsonObject = await update.json();
     return jsonObject.result;
   }
 
