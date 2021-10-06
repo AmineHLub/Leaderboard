@@ -1,20 +1,26 @@
 const ulWrap = document.querySelector('.score-list');
 
-let arrOfScores = [];
-
-const previousData = JSON.parse(localStorage.getItem('storedScores'));
 const previousInput = JSON.parse(localStorage.getItem('storedInput'));
-
 if (previousInput) {
   [document.querySelector('.name-input').value,
     document.querySelector('.score-input').value] = previousInput;
 }
 
-if (!previousData) {
-  localStorage.setItem('storedScores', JSON.stringify(arrOfScores));
-} else {
-  arrOfScores = previousData;
+const arrOfScores = [];
+
+const currentID = JSON.parse(localStorage.getItem('storedGameId'));
+
+async function importData() {
+  const fetchScores = fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${currentID}/scores`);
+  const response = await fetchScores;
+  const result = await response.json();
+  console.log(result);
 }
+if (currentID) {
+  importData();
+}
+
+// arrOfScores = previousData;
 
 arrOfScores.sort((b, a) => a.value - b.value);
 
