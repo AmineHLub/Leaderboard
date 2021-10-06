@@ -2,6 +2,10 @@ import './style.css';
 import getData from './getData.js';
 import saveInput from './saveInput.js';
 import addScores from './addScores.js';
+import storeGameIdToLocalStorage from './newGame.js';
+
+// create new game if there isn't
+storeGameIdToLocalStorage();
 
 document.querySelector('.name-input').addEventListener('change', saveInput);
 document.querySelector('.score-input').addEventListener('change', saveInput);
