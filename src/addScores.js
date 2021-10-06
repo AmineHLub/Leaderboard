@@ -1,18 +1,32 @@
 class Score {
-  constructor(name, value) {
-    this.name = name;
-    this.value = value;
+  constructor(user, score) {
+    this.user = user;
+    this.score = score;
   }
 }
+
+const currentID = JSON.parse(localStorage.getItem('storedGameId'));
+const name = document.querySelector('.name-input').value;
+const val = document.querySelector('.score-input').value;
+const objectMaking = fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${currentID}/scores`, {
+  method: 'POST',
+  body: JSON.stringify(new Score(name, val)),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+});
+
+async function sendScoreToApi() {
+  const response = await objectMaking;
+  await response.json();
+  window.location.reload();
+}
+
 const addScores = () => {
   const name = document.querySelector('.name-input').value;
   const val = document.querySelector('.score-input').value;
   if (name && val) {
-    const previousData = JSON.parse(localStorage.getItem('storedScores'));
-    previousData.push(new Score(name, val));
-    localStorage.setItem('storedScores', JSON.stringify(previousData));
-    // eslint-disable-next-line no-implied-eval
-    setTimeout('window.location.reload()', 0);
+    sendScoreToApi();
   }
 };
 
