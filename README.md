@@ -16,7 +16,7 @@ This Website is a Leaderboard listing project. A simple as it seems, it displays
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://aminehlub.github.io/Leaderboard/dist)
 
 
 ## Getting Started
