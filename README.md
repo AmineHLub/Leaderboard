@@ -42,7 +42,7 @@ npm run test
 
 ## Authors
 
-👤 **Author1**
+👤 **Mohamed Amine Hajltaief**
 
 - GitHub: [@AmineHLub](https://github.com/AmineHLub)
 - Twitter: [@Amino47612441](https://twitter.com/Amino47612441)
