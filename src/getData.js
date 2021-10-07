@@ -6,14 +6,14 @@ if (previousInput) {
     document.querySelector('.score-input').value] = previousInput;
 }
 
-export default function getData() {
+const getData = () => {
   const currentID = JSON.parse(localStorage.getItem('storedGameId'));
-  async function importData() {
+  const importData = async () => {
     const fetchScores = fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${currentID}/scores`);
     const update = await fetchScores;
     const jsonObject = await update.json();
     return jsonObject.result;
-  }
+  };
 
   if (currentID) {
     importData().then((arrOfScores) => {
@@ -25,4 +25,6 @@ export default function getData() {
       }
     });
   }
-}
+};
+
+export default getData;

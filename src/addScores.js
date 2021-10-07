@@ -7,9 +7,8 @@ class Score {
   }
 }
 
-async function sendScoreToApi() {
+const sendScoreToApi = async () => {
   const currentID = JSON.parse(localStorage.getItem('storedGameId'));
-  console.log(currentID);
   const objectMaking = fetch(`https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${currentID}/scores`, {
     method: 'POST',
     body: JSON.stringify(new Score(document.querySelector('.name-input').value,
@@ -21,7 +20,7 @@ async function sendScoreToApi() {
   const response = await objectMaking;
   await response.json();
   reloader();
-}
+};
 
 const addScores = () => {
   const name = document.querySelector('.name-input').value;
