@@ -7,11 +7,11 @@ import reloader from './reloader.js';
 
 storeGameIdToLocalStorage();
 
-document.querySelector('.name-input').addEventListener('change', saveInput);
-document.querySelector('.score-input').addEventListener('change', saveInput);
-
 document.querySelector('.reload-btn').addEventListener('click', reloader);
 
 document.querySelector('.submit-btn').addEventListener('click', addScores);
 
 getData();
+
+document.querySelector('.name-input').addEventListener('change', saveInput);
+document.querySelector('.score-input').addEventListener('change', saveInput);
