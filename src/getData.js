@@ -22,6 +22,9 @@ const getData = () => {
         const newLi = document.createElement('li');
         ulWrap.appendChild(newLi);
         document.querySelectorAll('.score-list > li')[i].innerText = `${arrOfScores[i].user} : ${arrOfScores[i].score}`;
+        if (i % 2 === 0) {
+          document.querySelectorAll('.score-list > li')[i].style.backgroundColor = '#bdbdbdb3';
+        }
       }
     });
   }
